@@ -14,5 +14,14 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
+
+  variants: {
+    extend: {
+      // Inclure les icônes de Font Awesome
+      opacity: ['responsive', 'hover', 'focus', 'disabled'],
+    },
+  },
 }

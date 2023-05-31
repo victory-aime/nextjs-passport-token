@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const ForgetPage = () => {
+const Forget = () => {
 
     const [email, setEmail] = useState('');
 
@@ -66,7 +66,7 @@ const ForgetPage = () => {
 
                     <p className="mt-10 text-center text-sm text-gray-500">
                         Already have an account?{' '}
-                        <a href="/authentification/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                        <a href="/admin/dashboard/authentification/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                             Log in
                         </a>
                     </p>
@@ -76,4 +76,4 @@ const ForgetPage = () => {
     );
 };
 
-export default ForgetPage;
+export default Forget;

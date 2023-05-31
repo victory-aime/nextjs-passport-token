@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 
-const RegisterPage = () => {
+const Register= () => {
 
     const [nom, setNom] = useState('');
-    const [prenom, setPrenom] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -15,13 +14,12 @@ const RegisterPage = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ nom, prenom, email,password }),
+            body: JSON.stringify({ nom,email,password }),
         });
 
         if (response.ok) {
             alert('Utilisateur ajouté avec succès !');
             setNom('');
-            setPrenom('');
             setEmail('');
             setPassword('');
         } else {
@@ -32,53 +30,25 @@ const RegisterPage = () => {
     return (
         <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
             <div className="w-full p-4 bg-white rounded-md shadow-md lg:max-w-xl">
-               {/* <img
-                    className="mx-auto h-10 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="Your Company"
-                />*/}
                 <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Welcome
                 </h2>
-
-
             <div className=" mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form onSubmit={handleSubmit} >
-                    <div className=" mt-4 grid grid-cols-2 gap-4">
-                        <div>
-                            <label htmlFor="firstName" className="block font-semibold">
-                                First Name
-                            </label>
-                            <div className="relative">
-                                <div className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500" />
-                                <input
-                                    id="firstName"
-                                    name="firstName"
-                                    type="text"
-                                    autoComplete="given-name"
-                                    value={prenom} onChange={(e) => setPrenom(e.target.value)}
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                            </div>
-                        </div>
-
-                        <div>
-                            <label htmlFor="lastName" className="block font-semibold">
-                                Last Name
-                            </label>
-                            <div className="relative" >
-                                < div className="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-500" />
-                                <input
-                                    id="lastName"
-                                    name="lastName"
-                                    type="text"
-                                    autoComplete="family-name"
-                                    value={nom} onChange={(e) => setNom(e.target.value)}
-                                    required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                />
-                            </div>
+                    <div>
+                        <label htmlFor="lastName" className="block text-sm font-medium leading-6 text-gray-900">
+                            Last Name
+                        </label>
+                        <div className="mt-2">
+                            <input
+                                id="lastName"
+                                name="lastName"
+                                type="text"
+                                autoComplete="lastName"
+                                required
+                                value={nom} onChange={(e) => setNom(e.target.value)}
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            />
                         </div>
                     </div>
                     <div>
@@ -103,11 +73,6 @@ const RegisterPage = () => {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Password
                             </label>
-                            <div className="text-sm">
-                                <a href="#" className="font-semibold text-blue-600 hover:text-indigo-500">
-                                    Forgot password?
-                                </a>
-                            </div>
                         </div>
                         <div className="mt-2">
                             <input
@@ -139,7 +104,11 @@ const RegisterPage = () => {
                             />
                         </div>
                     </div>
-
+                        <div className="text-sm">
+                            <a href="/admin/dashboard/authentification/forget" className="font-semibold text-blue-600 hover:text-indigo-500">
+                                Forgot password?
+                            </a>
+                        </div>
                     <div>
                         <button
                             type="submit"
@@ -153,7 +122,7 @@ const RegisterPage = () => {
 
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Already have an account?{' '}
-                    <a href="/authentification/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                    <a href="/admin/dashboard/authentification/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                         Log in
                     </a>
                 </p>
@@ -163,4 +132,4 @@ const RegisterPage = () => {
     );
 };
 
-export default RegisterPage;
+export default Register;

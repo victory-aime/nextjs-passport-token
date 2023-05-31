@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineMenu } from "react-icons/ai";
@@ -10,18 +9,18 @@ function Header() {
         <section id="top header">
             <header className="absolute top-6 inset-x-6 lg:inset-x-28 flex items-center justify-between z-50">
                 <div className="text-2xl">
-                    <Link href={'/'}>
+                    <a href={'/'}>
                         AUTO<span className="text-blue-600">MOBELITE</span>
-                    </Link>
+                    </a>
                 </div>
                 <div className="hidden lg:flex items-center gap-4 font-medium">
                     <button className="hover:text-blue-600 transition-all duration-300 ease-linear">
-                        <Link href={"/authentification/Login"}>
+                        <a href="/authentification/login">
                             Sign In
-                        </Link>
+                        </a>
                     </button>
                     <button className="bg-blue-600 py-3 px-7 text-white   rounded">
-                        <Link href={"/authentification/Register"}>Register</Link>
+                        <a href="/authentification/register">Register</a>
                     </button>
 
                 </div>
